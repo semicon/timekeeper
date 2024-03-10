@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Keeper</title>
+    <link href="https://semicon.github.io/fonts/stylesheet.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            margin: 20px;
+            font-family: "Digital_dream_Fat";
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        h1 {
+            background: orangered;
+            width: fit-content;
+            color: white;
+            padding: 0.75rem 2rem 0.5rem 2rem;
+            margin: 0 auto;
+            border-radius: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        div.clock-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        div.clock {
+            margin: 2rem 1rem;
+            min-width: 50%;
+        }
+
+        p {
+            text-transform: uppercase;
+            margin: 0.5rem 0;
+            color: rgb(7, 212, 7);
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Time Keeper</h1>
+    <div class="clock-wrapper">
+        <div class="clock">
+            <h2>Bangkok/Thailand</h2>
+            <p class="thai">Please Wait</p>
+        </div>
+
+        <div class="clock">
+            <h2>New Delhi/India</h2>
+            <p class="india">Please Wait</p>
+        </div>
+
+        <div class="clock">
+            <h2>Sydney/Australia</h2>
+            <p class="aus">Please Wait</p>
+        </div>
+
+        <div class="clock">
+            <h2>New York/U.S.A.</h2>
+            <p class="us">Please Wait</p>
+        </div>
+    </div>
+    <script>
+        function updateTime() {
+            let now = new Date();
+            
+            // Bangkok/Thailand
+            let now_thai = now.toLocaleString("en-TH", {
+                dateStyle: "medium",
+                timeStyle: "medium",
+                timeZone: "Asia/Bangkok"
+            });
+            document.querySelector("p.thai").innerText = now_thai;
+            
+            // New Delhi/India
+            let now_india = now.toLocaleString("en-IN", {
+                dateStyle: "medium",
+                timeStyle: "medium",
+                timeZone: "Asia/Kolkata"
+            });
+            document.querySelector("p.india").innerText = now_india;
+
+            // Sydney/Australia
+            let now_sydney = now.toLocaleString("en-AU", {
+                dateStyle: "medium",
+                timeStyle: "medium",
+                timeZone: "Australia/Sydney"
+            });
+            document.querySelector("p.aus").innerText = now_sydney;
+
+            // New York/U.S.A.
+            let now_new_york = now.toLocaleString("en-US", {
+                dateStyle: "medium",
+                timeStyle: "medium",
+                timeZone: "America/New_York"
+            });
+            document.querySelector("p.us").innerText = now_new_york;
+        }
+
+            updateTime();
+            setInterval(updateTime, 1000);
+
+    </script>
+  </body>
+</html>
